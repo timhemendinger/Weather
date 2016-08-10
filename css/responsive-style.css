@@ -1,0 +1,62 @@
+@media only screen and (max-width: 585px) {
+	.weather-panel-heading {
+		float: none;
+		width: 100%;
+		height: auto;
+		border-radius: 10px 10px 0 0;
+	}
+
+	.weather-panel-heading h4 {
+		margin-bottom: 5px;
+	}
+
+	.weather-panel-heading {
+		padding-bottom: 5px;
+	}
+
+	.weather-panel-heading-details p {
+		display: inline;
+	}
+
+	.weather-panel-heading-details p:not(:last-child) {
+		margin-right: 1em;
+	}
+
+	.weather-panel {
+		height: auto;
+	}
+	
+	.weather-panel-heading-details {
+		margin: 0; padding: 0;
+	}
+
+	#icon {
+		display: inline-block;
+	}
+
+	#icon img {
+		margin-top: 10px;
+		width: 50%;
+	}
+
+	#caption {
+		margin: 0;
+	}
+
+	#temp {
+		font-size: 30px;
+		color: #fff;
+	}
+
+	.weather-panel-main {
+		padding-bottom: .5em;
+	}
+
+}
+
+@media only screen and (max-width: 420px) {
+	.weather-panel-heading-details p {
+		
+		font-size: 12px;
+	}
+}

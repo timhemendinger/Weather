@@ -1,0 +1,20 @@
+<div class="weather-panel" ng-repeat="w in currentForecast[0].data.list">
+	<div class="weather-panel-heading">
+		<h4>{{ convertToDate(w.dt) }}</h4>
+		<p style="text-transform: capitalize;">{{ city }}</p>
+		
+		<div class="weather-panel-heading-details">
+			<p>Humidity: {{ w.humidity }}&#37;</p>
+			<!-- <p>Wind: {{ currentForecast[1].data.wind.speed }}</p> worth including? -->
+
+		</div>
+
+	</div>
+
+	<div class="weather-panel-main">
+		<div id="icon"><img src="img/icons/{{ w.weather[0].icon }}.png"></div>
+		<p id="caption">{{ w.weather[0].description }}</p>
+		<p>Low: {{ convertTemp(w.temp.min, radioUnits) }}&deg;  |  High: {{ convertTemp(w.temp.max, radioUnits) }}&deg;</p>
+	</div>
+
+</div>
