@@ -1,62 +1,73 @@
 @media only screen and (max-width: 585px) {
-	.weather-panel-heading {
-		float: none;
-		width: 100%;
-		height: auto;
-		border-radius: 10px 10px 0 0;
-	}
+  /* line 2, ../sass/responsive-style.scss */
+  .weather-panel-heading {
+    float: none;
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+  }
 
-	.weather-panel-heading h4 {
-		margin-bottom: 5px;
-	}
+  /* line 9, ../sass/responsive-style.scss */
+  .weather-panel-heading h4 {
+    margin-bottom: 5px;
+  }
 
-	.weather-panel-heading {
-		padding-bottom: 5px;
-	}
+  /* line 13, ../sass/responsive-style.scss */
+  .weather-panel-heading {
+    padding-bottom: 5px;
+  }
 
-	.weather-panel-heading-details p {
-		display: inline;
-	}
+  /* line 17, ../sass/responsive-style.scss */
+  .weather-panel-heading-details p {
+    display: inline;
+  }
 
-	.weather-panel-heading-details p:not(:last-child) {
-		margin-right: 1em;
-	}
+  /* line 21, ../sass/responsive-style.scss */
+  .weather-panel-heading-details p:not(:last-child) {
+    margin-right: 1em;
+  }
 
-	.weather-panel {
-		height: auto;
-	}
-	
-	.weather-panel-heading-details {
-		margin: 0; padding: 0;
-	}
+  /* line 25, ../sass/responsive-style.scss */
+  .weather-panel {
+    height: auto;
+  }
 
-	#icon {
-		display: inline-block;
-	}
+  /* line 29, ../sass/responsive-style.scss */
+  .weather-panel-heading-details {
+    margin: 0;
+    padding: 0;
+  }
 
-	#icon img {
-		margin-top: 10px;
-		width: 50%;
-	}
+  /* line 33, ../sass/responsive-style.scss */
+  #icon {
+    display: inline-block;
+  }
 
-	#caption {
-		margin: 0;
-	}
+  /* line 37, ../sass/responsive-style.scss */
+  #icon img {
+    margin-top: 10px;
+    width: 50%;
+  }
 
-	#temp {
-		font-size: 30px;
-		color: #fff;
-	}
+  /* line 42, ../sass/responsive-style.scss */
+  #caption {
+    margin: 0;
+  }
 
-	.weather-panel-main {
-		padding-bottom: .5em;
-	}
+  /* line 46, ../sass/responsive-style.scss */
+  #temp {
+    font-size: 30px;
+    color: #fff;
+  }
 
+  /* line 51, ../sass/responsive-style.scss */
+  .weather-panel-main {
+    padding-bottom: .5em;
+  }
 }
-
 @media only screen and (max-width: 420px) {
-	.weather-panel-heading-details p {
-		
-		font-size: 12px;
-	}
+  /* line 58, ../sass/responsive-style.scss */
+  .weather-panel-heading-details p {
+    font-size: 12px;
+  }
 }
