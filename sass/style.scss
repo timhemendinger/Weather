@@ -142,3 +142,7 @@ nav {
 	margin-bottom: 1em;
 }
 
+.nav li {
+    display:table-cell !important;
+    width: 1% !important;
+}
