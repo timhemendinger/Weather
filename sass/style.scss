@@ -1,3 +1,9 @@
+$tabs-red: #F61C3B;
+$panel-blue: #03a9f4;
+
+$dark-grey: #4c4c4c;
+$nav-background: #4c4c4c;
+
 body {
 	background-image: url('../img/bg.jpg');
 	background-attachment: fixed;
@@ -42,8 +48,8 @@ nav {
 }
 
 
-.nav-tabs { border-bottom: 2px solid #DDD; background-color: #ff1934; }
-    .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0; background-color: #ff1934; }
+.nav-tabs { border-bottom: 2px solid #DDD; background-color: $tabs-red; }
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0; background-color: $tabs-red; }
     .nav-tabs > li > a { border: none; color: #fff; }
         .nav-tabs > li.active > a, .nav-tabs > li > a:hover { border: none; color: #fff !important; background: transparent; }
         .nav-tabs > li > a::after { content: ""; background: #fff; height: 2px; position: absolute; width: 100%; left: 0px; bottom: -1px; transition: all 250ms ease 0s; transform: scale(0); }
@@ -70,7 +76,7 @@ nav {
 }
 
 .weather-panel-heading {
-	background-color: #03a9f4;
+	background-color: $panel-blue;
 	color: #fff;
 	width: 30%;
 	height: 100%;
@@ -118,7 +124,7 @@ nav {
 }
 
 .navbar-default {
-	background-color: #000;
+	background-color: $nav-background;
 	color: #fff;
 	border: none !important;
 	box-shadow: 0 2px 5px rgba(0,0,0,0.26);
