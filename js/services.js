@@ -9,7 +9,7 @@ weather.service('weatherService', function($resource, $http, $q, $filter){
 
     this.getForecast = function(location) {
 
-         return $q.all([
+        return $q.all([
             $http.get("http://api.openweathermap.org/data/2.5/forecast/daily?q="+location+"&mode=json&cnt=7&appid=e92f550a676a12835520519a5a2aef4b"), 
             $http.get("http://api.openweathermap.org/data/2.5/weather?q="+location+"&appid=e92f550a676a12835520519a5a2aef4b")
         ]);

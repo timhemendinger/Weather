@@ -1,4 +1,4 @@
-<div class="weather-panel" ng-repeat="w in currentForecast[0].data.list">
+<div class="weather-panel week" ng-repeat="w in currentForecast[0].data.list">
 	<div class="weather-panel-heading">
 		<h4>{{ convertToDate(w.dt) }}</h4>
 		<p style="text-transform: capitalize;">{{ city }}</p>
@@ -12,7 +12,7 @@
 	</div>
 
 	<div class="weather-panel-main">
-		<div id="icon"><img src="img/icons/{{ w.weather[0].icon }}.png"></div>
+		<div id="icon"><img src="img/icons/{{ w.weather[0].icon | limitTo : 2 }}d.png"></div>
 		<p id="caption">{{ w.weather[0].description }}</p>
 		<p>Low: {{ convertTemp(w.temp.min, radioUnits) }}&deg;  |  High: {{ convertTemp(w.temp.max, radioUnits) }}&deg;</p>
 	</div>

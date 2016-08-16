@@ -1,21 +1,54 @@
 <div class="weather-panel">
 	<div class="weather-panel-heading">
-		<h4>Tuesday, August 9</h4>
-		<p style="text-transform: capitalize;">{{ city }}</p>
+		<h4>{{ convertToDate(currentForecast[1].data.dt) }}</h4>
+		<p style="text-transform: capitalize;" ng-hide="!city">{{ city }}</p>
 		
 		<div class="weather-panel-heading-details">
-			<p>Sunrise: {{ toLocaleTime(currentForecast[1].data.sys.sunrise) }}</p>
-			<p>Sunset: {{ toLocaleTime(currentForecast[1].data.sys.sunset) }}</p>
-			<p>Humidity: {{ currentForecast[1].data.main.humidity }}&#37;</p>
+			<p>
+				Sunrise: 
+				<span ng-hide="!currentForecast[1].data.sys.sunrise">
+					{{ toLocaleTime(currentForecast[1].data.sys.sunrise) }}
+				</span>
+			</p>
+
+			<p>
+				Sunset: 
+				<span ng-hide="!currentForecast[1].data.sys.sunset">
+					{{ toLocaleTime(currentForecast[1].data.sys.sunset) }}
+				</span>
+			</p>
+			
+			<p>
+				Humidity: 
+				<span ng-hide="!currentForecast[1].data.main.humidity">
+					{{ currentForecast[1].data.main.humidity }}&#37;
+				</span>
+			</p>
+			
 		</div>
 
 	</div>
 
 	<div class="weather-panel-main">
-		<div id="temp">{{ convertTemp(currentForecast[1].data.main.temp, radioUnits) }}&deg;</div>
-		<div id="icon"><img src="img/icons/{{ currentForecast[1].data.weather[0].icon }}.png"></div>
+		
+		<div id="temp">
+			<span ng-show="!currentForecast[1].data.main.temp">---</span>
+			<span ng-hide="!currentForecast[1].data.main.temp">
+				{{ convertTemp(currentForecast[1].data.main.temp, radioUnits) }}
+			</span>
+			&deg;
+		</div>
+
+
+		<div id="icon"><img src="img/icons/{{ currentForecast[1].data.weather[0].icon | limitTo : 2 }}d.png"></div>
 		<p id="caption">{{ currentForecast[1].data.weather[0].description }}</p>
-		<p>Today’s Low: {{ convertTemp(currentForecast[1].data.main.temp_min, radioUnits) }}&deg;  |  Today’s High: {{ convertTemp(currentForecast[1].data.main.temp_max, radioUnits) }}&deg;</p>
+
+	
+		<p ng-hide="!currentForecast[1].data.main">
+			Today’s Low: {{ convertTemp(currentForecast[1].data.main.temp_min, radioUnits) }}&deg;  |  Today’s High: {{ convertTemp(currentForecast[1].data.main.temp_max, radioUnits) }}&deg;
+		</p>
+
+
 	</div>
 
 </div>

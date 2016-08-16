@@ -8,12 +8,14 @@ body {
 	background-image: url('../img/bg.jpg');
 	background-attachment: fixed;
 }
-.container {
+
+.view {
 	width: 600px;
 	margin: 0 auto;
 	background-color: #d6d6d6;
 	background: rgb(214, 214, 214); 
 	background: rgba(215, 214, 214, .8);
+	margin-bottom: 20px;
 }
 
 #radio-group-label {
@@ -145,4 +147,28 @@ nav {
 .nav li {
     display:table-cell !important;
     width: 1% !important;
+}
+
+#main {
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#loading {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 64px;
+   height: 64px;
+   margin-bottom: -32px; /* Half the height */
+   margin-left: -32px; /* Half the width */
+   z-index: 9999;
+}
+
+.week {
+	height: 200px;
+}
+
+.week #icon img {
+	width: 75px;
+
 }

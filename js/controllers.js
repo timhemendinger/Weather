@@ -21,6 +21,8 @@ weather.controller('homeController', ['$scope', '$location', '$resource', '$filt
 
     $scope.submit = function() {
 
+        console.log('loading');
+
         weatherService.city = $scope.txtCity;
 
         weatherService.getForecast(weatherService.city).then(
@@ -45,13 +47,14 @@ weather.controller('homeController', ['$scope', '$location', '$resource', '$filt
 
 weather.controller('todayController', ['$scope', '$filter', 'weatherService', function($scope, $filter, weatherService) {
 
+    $scope.convertToDate = weatherService.convertToDate;
     $scope.convertTemp = weatherService.convertTemp;
     $scope.toLocaleTime = weatherService.toLocaleTime;
 
     $scope.$watch(function() {
         return weatherService.city;
     }, function(newVal) { 
-        if(!newVal) return;
+        
         $scope.city = newVal;
     }, true);
 
