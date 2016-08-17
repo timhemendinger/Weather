@@ -7,6 +7,14 @@ weather.controller('homeController', ['$scope', '$location', '$resource', '$filt
         weatherService.units = $scope.radioUnits;
     });
 
+    // Watch for city changes in the service (ex. when a default is saved to localStorage)
+    $scope.$watch(function() {
+        return weatherService.city;
+    }, function(newVal) { 
+        $scope.txtCity = newVal;
+        $scope.submit();
+    }, true);
+
     // Grab the date
     $scope.date = ($filter('date')(Date.now(), 'fullDate'));
 
@@ -20,8 +28,6 @@ weather.controller('homeController', ['$scope', '$location', '$resource', '$filt
         }, true);
 
     $scope.submit = function() {
-
-        console.log('loading');
 
         weatherService.city = $scope.txtCity;
 
@@ -41,7 +47,6 @@ weather.controller('homeController', ['$scope', '$location', '$resource', '$filt
     $scope.isActive = function (path) {
 	  return ($location.path().substr(0, path.length) === path) ? 'active' : '';
 	}
-
 
 }]);
 
@@ -103,6 +108,19 @@ weather.controller('weekController', ['$scope', '$filter', 'weatherService', fun
 
 }]);
 
-weather.controller('settingsController', ['$scope', function($scope) {
-    
+weather.controller('settingsController', ['$scope', 'weatherService', function($scope, weatherService) {
+    var storageAvailable = weatherService.storageAvailable;
+
+    if (storageAvailable('localStorage') && localStorage.getItem('weatherLocation')) {
+        $scope.weatherLocation = localStorage.getItem('weatherLocation');
+    }
+
+    $scope.submit = function() {
+        if (storageAvailable('localStorage')) {
+            localStorage.setItem('weatherLocation', $scope.weatherLocation);
+            weatherService.city = $scope.weatherLocation;
+        } else {
+            alert('Sorry, your browser does not allow for storage of a default location.')
+        }
+    };
 }]);

@@ -4,8 +4,21 @@ weather.service('weatherService', function($resource, $http, $q, $filter){
 
     this.units = 'f';
 
-    // default city
-    this.city = 'Chicago, IL';
+    this.storageAvailable = storageAvailable;
+    
+    if (storageAvailable('localStorage')) {
+        var weatherLocation = localStorage.getItem('weatherLocation');
+
+        // If there's a weatherLocaiton set in local storage already
+        if(weatherLocation) {
+            this.city = weatherLocation;
+        } else {
+            localStorage.setItem('weatherLocation', 'Chicago, IL');
+            this.city = 'Chicago, IL';
+        }
+    } else {
+        this.city = 'Chicago, IL';
+    }
 
     this.getForecast = function(location) {
 
@@ -52,6 +65,20 @@ weather.service('weatherService', function($resource, $http, $q, $filter){
         time = h + ':' + min + ' ' + ampm;
             
         return time;
+    }
+
+    // Function to detect if localStorage is available in the user's browser
+    function storageAvailable(type) {
+        try {
+            var storage = window[type],
+                x = '__storage_test__';
+            storage.setItem(x, x);
+            storage.removeItem(x);
+            return true;
+        }
+        catch(e) {
+            return false;
+        }
     }
 
 
